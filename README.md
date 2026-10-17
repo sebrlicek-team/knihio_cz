@@ -2,6 +2,22 @@
 
 Osobní knihovna v češtině s béžovým vzhledem, přihlášením přes Supabase a načítáním knih podle ISBN.
 
+## Web na GitHub Pages
+
+**Adresa aplikace:** https://sebrlicek-team.github.io/knihio_cz/
+
+Aplikace běží přímo v prohlížeči. Na hostingu nepotřebuje Node.js ani vlastní server.
+Workflow `.github/workflows/pages.yml` po každém pushi na `main` zkontroluje JavaScript a nasadí obsah složky `dist` na GitHub Pages.
+Stav nasazení je vidět v záložce **Actions**. Zdrojem publikování v **Settings → Pages** musí být **GitHub Actions**.
+
+V Supabase **Authentication → URL Configuration** nastavte:
+
+- **Site URL:** `https://sebrlicek-team.github.io/knihio_cz/`
+- **Redirect URLs:** `https://sebrlicek-team.github.io/knihio_cz/`
+
+Pro cloudové ukládání je nutné spustit `supabase/setup.sql`. Bez účtu funguje místní knihovna v prohlížeči.
+Místní knihovna z adresy localhost se na doménu GitHub Pages automaticky nepřenáší; pro přístup z obou adres použijte stejný účet Supabase.
+
 ## Spuštění
 
 Je potřeba Node.js 22 nebo novější. Aplikace nepotřebuje instalovat žádné balíčky.
