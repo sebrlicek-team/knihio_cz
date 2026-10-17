@@ -4,7 +4,17 @@ Osobní knihovna v češtině s béžovým vzhledem, přihlášením přes Supab
 
 ## Web na GitHub Pages
 
-**Adresa aplikace:** https://sebrlicek-team.github.io/knihio_cz/
+**Cílová adresa aplikace:** https://knihio.seb-dev.cloud/
+
+Vlastní doména `knihio.seb-dev.cloud` je nastavená v GitHub Pages. Pro její dostupnost vytvořte u správce DNS záznam:
+
+| Typ | Název | Cíl |
+| --- | --- | --- |
+| CNAME | `knihio` | `sebrlicek-team.github.io` |
+
+Cíl neobsahuje `https://` ani cestu `/knihio_cz/`. Pro stejný název nesmí existovat konfliktní A nebo AAAA záznamy. Po ověření DNS a vystavení certifikátu zapněte v **Settings → Pages** volbu **Enforce HTTPS**.
+
+Původní adresa https://sebrlicek-team.github.io/knihio_cz/ přesměrovává na vlastní doménu.
 
 Aplikace běží přímo v prohlížeči. Na hostingu nepotřebuje Node.js ani vlastní server.
 Workflow `.github/workflows/pages.yml` po každém pushi na `main` zkontroluje JavaScript a nasadí obsah složky `dist` na GitHub Pages.
@@ -12,8 +22,8 @@ Stav nasazení je vidět v záložce **Actions**. Zdrojem publikování v **Sett
 
 V Supabase **Authentication → URL Configuration** nastavte:
 
-- **Site URL:** `https://sebrlicek-team.github.io/knihio_cz/`
-- **Redirect URLs:** `https://sebrlicek-team.github.io/knihio_cz/`
+- **Site URL:** `https://knihio.seb-dev.cloud/`
+- **Redirect URLs:** `https://knihio.seb-dev.cloud/`
 
 Pro cloudové ukládání je nutné spustit `supabase/setup.sql`. Bez účtu funguje místní knihovna v prohlížeči.
 Místní knihovna z adresy localhost se na doménu GitHub Pages automaticky nepřenáší; pro přístup z obou adres použijte stejný účet Supabase.
